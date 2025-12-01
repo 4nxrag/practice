@@ -12,3 +12,33 @@ function sumArray(arr) {
 }
 
 console.log(sumArray([1, 2, 3, 4])); // 10
+
+// Q.2 Find the largest number in an array.
+// [12, 5, 7, 99, 24] → 99
+
+function maxValue(arr) {
+    let max = arr[0] // Assuming first element is the largest
+
+    for(i=0; i<arr.length; i++) {
+        if (arr[i] > max) {
+            max = arr[i] // Updating max if we find a bigger value
+        }
+    }
+    return max;
+}
+
+console.log(maxValue([12, 5, 7, 99, 24])); // 99
+
+// Q.3 Reverse an array without using built-in methods.
+// [1, 2, 3, 4] → [4, 3, 2, 1]
+
+function reversedArr(arr) {
+    let reversed = []; // initialize empty array
+
+    for (i=arr.length-1; i>=0; i--) {
+        reversed.push(arr[i]);
+    }
+    return reversed;
+}
+
+console.log(reversedArr([1, 2, 3, 4]));
