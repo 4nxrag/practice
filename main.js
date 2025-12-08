@@ -42,3 +42,20 @@ function reversedArr(arr) {
 }
 
 console.log(reversedArr([1, 2, 3, 4]));
+
+// Q.4 Count how many times a given number appears in an array.
+// Array → [1, 2, 3, 2, 4, 2]
+
+function countOccurrences(arr, target) {
+  let count = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === target) {
+      count++;
+    }
+  }
+
+  return count;
+}
+
+console.log(countOccurrences([1, 2, 3, 2, 4, 2], 2)); 
