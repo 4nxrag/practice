@@ -59,3 +59,15 @@ function countOccurrences(arr, target) {
 }
 
 console.log(countOccurrences([1, 2, 3, 2, 4, 2], 2)); 
+
+// Q.5 Write a function that takes a number and returns "even" or "odd"
+
+function checkEvenOdd(num) {
+  if (num % 2 === 0) {
+    return "even";
+  } else {
+    return "odd";
+  }
+}
+
+console.log(checkEvenOdd(7)); // odd
