@@ -71,3 +71,20 @@ function checkEvenOdd(num) {
 }
 
 console.log(checkEvenOdd(7)); // odd
+
+// Q.6 Take a string and return how many vowels it has.
+
+function countVowels(str) {
+  let count = 0;
+  let vowels = "aeiouAEIOU";
+
+  for (let i = 0; i < str.length; i++) {
+    if (vowels.includes(str[i])) {
+      count++;
+    }
+  }
+
+  return count;
+}
+
+console.log(countVowels("Anurag")); // 3
