@@ -88,3 +88,19 @@ function countVowels(str) {
 }
 
 console.log(countVowels("Anurag")); // 3
+
+// Q.7 Take an array and return a new array with only even numbers.
+
+function filterEven(arr) {
+  let result = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 === 0) {
+      result.push(arr[i]);
+    }
+  }
+
+  return result;
+}
+
+console.log(filterEven([1, 2, 3, 4, 5, 6])); // [2,4,6]
