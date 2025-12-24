@@ -104,3 +104,20 @@ function filterEven(arr) {
 }
 
 console.log(filterEven([1, 2, 3, 4, 5, 6])); // [2,4,6]
+
+// Q.8 Remove duplicates from an array and return a new array with unique values.
+
+function removeDuplicates(arr) {
+  let unique = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    if (!unique.includes(arr[i])) {
+      unique.push(arr[i]);
+    }
+  }
+
+  return unique;
+}
+
+console.log(removeDuplicates([1, 2, 2, 3, 4, 4, 5]));
+// Output: [1, 2, 3, 4, 5]
