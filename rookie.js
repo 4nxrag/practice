@@ -60,12 +60,20 @@
 //     tickerx5();
 // }
 
+function wait(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 
-const button = document.getElementById("startButton");
-let counter = 0
-
-button.addEventListener("click", function()  {
-    for (let i=10; i>=0; i--) {
-        return i;
+async function ticker(count) {
+    for (let i = 1; i <= count; i++) {
+        await wait(1000);
+        console.log(`Tick Tick ${i}`);
+    } return "Done ticking";
+} (async () => {
+    try {
+        const message = await ticker(5);
+        console.log(message);
+    } finally {
+        console.log("Ticker finished");
     }
-})
+})();
