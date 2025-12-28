@@ -122,4 +122,10 @@ function removeDuplicates(arr) {
 console.log(removeDuplicates([1, 2, 2, 3, 4, 4, 5]));
 // Output: [1, 2, 3, 4, 5]
 
-// Q.9 
+// Q.9 Write a function that takes an array of numbers and returns the first element of the array.
+
+function getFirst(arr) {
+    return arr[0];
+}
+
+console.log(getFirst([10, 20, 30]));
