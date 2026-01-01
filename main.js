@@ -17,14 +17,14 @@ console.log(sumArray([1, 2, 3, 4])); // 10
 // [12, 5, 7, 99, 24] → 99
 
 function maxValue(arr) {
-    let max = arr[0] // Assuming first element is the largest
+  let max = arr[0] // Assuming first element is the largest
 
-    for(i=0; i<arr.length; i++) {
-        if (arr[i] > max) {
-            max = arr[i] // Updating max if we find a bigger value
-        }
+  for (i = 0; i < arr.length; i++) {
+    if (arr[i] > max) {
+      max = arr[i] // Updating max if we find a bigger value
     }
-    return max;
+  }
+  return max;
 }
 
 console.log(maxValue([12, 5, 7, 99, 24])); // 99
@@ -33,12 +33,12 @@ console.log(maxValue([12, 5, 7, 99, 24])); // 99
 // [1, 2, 3, 4] → [4, 3, 2, 1]
 
 function reversedArr(arr) {
-    let reversed = []; // initialize empty array
+  let reversed = []; // initialize empty array
 
-    for (i=arr.length-1; i>=0; i--) {
-        reversed.push(arr[i]);
-    }
-    return reversed;
+  for (i = arr.length - 1; i >= 0; i--) {
+    reversed.push(arr[i]);
+  }
+  return reversed;
 }
 
 console.log(reversedArr([1, 2, 3, 4]));
@@ -58,7 +58,7 @@ function countOccurrences(arr, target) {
   return count;
 }
 
-console.log(countOccurrences([1, 2, 3, 2, 4, 2], 2)); 
+console.log(countOccurrences([1, 2, 3, 2, 4, 2], 2));
 
 // Q.5 Write a function that takes a number and returns "even" or "odd"
 
@@ -125,7 +125,27 @@ console.log(removeDuplicates([1, 2, 2, 3, 4, 4, 5]));
 // Q.9 Write a function that takes an array of numbers and returns the first element of the array.
 
 function getFirst(arr) {
-    return arr[0];
+  return arr[0];
 }
 
 console.log(getFirst([10, 20, 30]));
+
+// Q.10 Group Anagrams (LeetCode 49)
+
+function groupAnagrams(strs) {
+  // using a map to store data
+  let map = new map();
+
+  for (let word of strs) {
+
+    let sortedKey = word.split('').sort().join('');
+
+    if (!map.has(sortedKey)) {
+      map.set(sortedKey, []);
+    }
+    map.get(sortedKey).push(word);
+  }
+  return Array.from(map.values());
+}
+
+console.log(groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]));
