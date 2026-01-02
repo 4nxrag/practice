@@ -149,3 +149,86 @@ function groupAnagrams(strs) {
 }
 
 console.log(groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]));
+
+// Q.11 Container With Most Water
+
+const maxArea = function(height) {
+    let maxWater = 0;
+    let left = 0;                  // Pointer at the start
+    let right = height.length - 1; // Pointer at the end
+
+    while (left < right) {
+        // 1. Calculate current area
+        // Height is limited by the shorter wall (Math.min)
+        // Width is distance between pointers (right - left)
+        const currentHeight = Math.min(height[left], height[right]);
+        const currentWidth = right - left;
+        
+        const area = currentHeight * currentWidth;
+
+        // 2. Update maxWater if we found a new best
+        maxWater = Math.max(maxWater, area);
+
+        // 3. The Strategy: Move the shorter wall pointer inward
+        if (height[left] < height[right]) {
+            left++;
+        } else {
+            right--;
+        }
+    }
+
+    return maxWater;
+};
+
+// Q.12 3Sum
+
+const threeSum = function(nums) {
+    const results = [];
+    
+    // Step 1: Sort! (Critical for Two Pointers to work)
+    // We need logic, not chaos.
+    nums.sort((a, b) => a - b); 
+
+    // Step 2: Iterate through the array (This is our "Fixed" number 'a')
+    for (let i = 0; i < nums.length; i++) {
+        
+        // Optimization: If the fixed number is > 0, we can never sum to 0
+        // because the rest are also positive (since we sorted).
+        if (nums[i] > 0) break;
+
+        // Duplicate Check: If this number is same as previous, skip it.
+        // We don't want duplicate triplets.
+        if (i > 0 && nums[i] === nums[i - 1]) continue;
+
+        // Step 3: The "Two Pointer" Problem
+        // We need to find two numbers that sum to (0 - nums[i])
+        let left = i + 1;
+        let right = nums.length - 1;
+
+        while (left < right) {
+            const sum = nums[i] + nums[left] + nums[right];
+
+            if (sum === 0) {
+                // Found one!
+                results.push([nums[i], nums[left], nums[right]]);
+
+                // Skip duplicates for the pointers too
+                // (e.g., if we have [-1, -1, 2], we don't want to process the second -1)
+                while (left < right && nums[left] === nums[left + 1]) left++;
+                while (left < right && nums[right] === nums[right - 1]) right--;
+
+                // Move both pointers inward
+                left++;
+                right--;
+            } else if (sum < 0) {
+                // Sum is too small -> We need bigger numbers -> Move Left pointer up
+                left++;
+            } else {
+                // Sum is too big -> We need smaller numbers -> Move Right pointer down
+                right--;
+            }
+        }
+    }
+
+    return results;
+};
