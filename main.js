@@ -134,7 +134,7 @@ console.log(getFirst([10, 20, 30]));
 
 function groupAnagrams(strs) {
   // using a map to store data
-  let map = new map();
+  let map = new Map();
 
   for (let word of strs) {
 
